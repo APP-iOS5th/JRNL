@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import MapKit
 
-class JournalEntry {
+class JournalEntry: NSObject, MKAnnotation {
     // MARK: - Properties
     let date: Date
     let rating: Int
@@ -30,6 +31,22 @@ class JournalEntry {
         self.photo = photo
         self.latitude = latitude
         self.longitude = longitude
+    }
+    
+    var coordinate: CLLocationCoordinate2D {
+        guard let lat = latitude,
+              let long = longitude else {
+            return CLLocationCoordinate2D()
+        }
+        return CLLocationCoordinate2D(latitude: lat, longitude: long)
+    }
+    
+    var title: String? {
+        date.formatted(.dateTime.year().month().day())
+    }
+    
+    var subtitle: String? {
+        entryTitle
     }
 }
 
