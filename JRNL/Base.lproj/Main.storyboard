@@ -388,6 +388,7 @@
                     <connections>
                         <outlet property="bodyTextView" destination="efB-Iz-jvh" id="E1X-nU-co5"/>
                         <outlet property="dateLabel" destination="lSQ-aL-EEz" id="ydg-2W-cQW"/>
+                        <outlet property="mapImageView" destination="A1W-Rw-cTq" id="f0t-ea-91B"/>
                         <outlet property="photoImageView" destination="xGg-HL-BPt" id="oO0-1R-5Zp"/>
                         <outlet property="titleLabel" destination="24j-JC-8o2" id="Llm-eX-hmM"/>
                     </connections>
