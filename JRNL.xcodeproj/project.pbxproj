@@ -17,6 +17,7 @@
 		376D26D02BEDC0D500B2E67B /* JournalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D26CF2BEDC0D500B2E67B /* JournalListTableViewCell.swift */; };
 		376D26D32BEDDD3200B2E67B /* AddJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D26D22BEDDD3200B2E67B /* AddJournalEntryViewController.swift */; };
 		376D26D62BEE01E100B2E67B /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D26D52BEE01E100B2E67B /* JournalEntryDetailViewController.swift */; };
+		3793B07D2BF3282C00C8C2BC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793B07C2BF3282C00C8C2BC /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		376D26CF2BEDC0D500B2E67B /* JournalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListTableViewCell.swift; sourceTree = "<group>"; };
 		376D26D22BEDDD3200B2E67B /* AddJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryViewController.swift; sourceTree = "<group>"; };
 		376D26D52BEE01E100B2E67B /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
+		3793B07C2BF3282C00C8C2BC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				376D26CA2BEDB7AB00B2E67B /* Journal List Screen */,
 				376D26D12BEDDCC900B2E67B /* Add New Entry Screen */,
 				376D26D42BEE018200B2E67B /* Entry Detail Scene */,
+				3793B07B2BF3280300C8C2BC /* Map Screen */,
 				3764AF802BE9F85F00A21A1B /* Main.storyboard */,
 				3764AF832BE9F86000A21A1B /* Assets.xcassets */,
 				3764AF852BE9F86000A21A1B /* LaunchScreen.storyboard */,
@@ -117,6 +120,14 @@
 				376D26D52BEE01E100B2E67B /* JournalEntryDetailViewController.swift */,
 			);
 			path = "Entry Detail Scene";
+			sourceTree = "<group>";
+		};
+		3793B07B2BF3280300C8C2BC /* Map Screen */ = {
+			isa = PBXGroup;
+			children = (
+				3793B07C2BF3282C00C8C2BC /* MapViewController.swift */,
+			);
+			path = "Map Screen";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 				3764AF7D2BE9F85F00A21A1B /* SceneDelegate.swift in Sources */,
 				376D26D62BEE01E100B2E67B /* JournalEntryDetailViewController.swift in Sources */,
 				376D26D32BEDDD3200B2E67B /* AddJournalEntryViewController.swift in Sources */,
+				3793B07D2BF3282C00C8C2BC /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
