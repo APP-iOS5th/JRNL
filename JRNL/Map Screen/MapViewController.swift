@@ -9,10 +9,11 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
+    var sampleJournalEntryData = SampleJournalEntryData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         self.navigationItem.title = "Loading..."
         locationManager.requestLocation()
+        mapView.delegate = self
+        sampleJournalEntryData.createSampleJournalEntryData()
+        mapView.addAnnotations(sampleJournalEntryData.journalEntries)
     }
     
     // MARK: - CLLocationManagerDelegate
