@@ -66,7 +66,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
               let indexPath = tableView.indexPath(for: selectedJournalEntryCell) else {
             fatalError("Could not get indexPath")
         }
-        let selectedJournalEntry = sampleJournalEntryData.journalEntries[indexPath.row]
+        let selectedJournalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
         journalEntryDetailViewController.selectedJournalEntry = selectedJournalEntry
     }
 
