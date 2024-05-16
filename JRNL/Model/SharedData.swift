@@ -52,4 +52,16 @@ class SharedData {
             print("Failed to read JSON data: \(error.localizedDescription)")
         }
     }
+    
+    func saveJournalEntriesData() {
+        let pathDirectory = getDocumentDirectory()
+        try? FileManager.default.createDirectory(at: pathDirectory, withIntermediateDirectories: true)
+        let filePath = pathDirectory.appendingPathComponent("journalEntriesData.json")
+        let json = try? JSONEncoder().encode(journalEntries)
+        do {
+            try json!.write(to: filePath)
+        } catch {
+            print("Failed to write JSON data: \(error.localizedDescription)")
+        }
+    }
 }

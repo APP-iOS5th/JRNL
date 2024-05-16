@@ -13,7 +13,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        SharedData.shared.loadJournalEntriesData()
     }
 
     // MARK: - UITableViewDataSource
@@ -37,6 +37,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             SharedData.shared.removeJournalEntry(index: indexPath.row)
+            SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
         }
     }
@@ -49,6 +50,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
         if let sourceViewController = segue.source as? AddJournalEntryViewController,
            let newJournalEntry = sourceViewController.newJournalEntry {
             SharedData.shared.addJournalEntry(newJournalEntry: newJournalEntry)
+            SharedData.shared.saveJournalEntriesData()
             tableView.reloadData()
         } else {
             print("No Entry or Controller")
