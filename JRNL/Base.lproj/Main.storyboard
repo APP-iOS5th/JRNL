@@ -267,7 +267,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZNU-D7-6yp" customClass="RatingView" customModule="JRNL" customModuleProvider="target">
+                                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZNU-D7-6yp" customClass="RatingView" customModule="JRNL" customModuleProvider="target">
                                                     <rect key="frame" x="61.5" y="8" width="252" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="WcF-gq-nET"/>
