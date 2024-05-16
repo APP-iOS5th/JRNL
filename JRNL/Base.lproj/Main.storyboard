@@ -108,7 +108,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="19o-9D-zq6">
                                 <rect key="frame" x="20" y="76" width="335" height="469"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-4e-gSH" customClass="RatingView" customModule="JRNL" customModuleProvider="target">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-4e-gSH" customClass="RatingView" customModule="JRNL" customModuleProvider="target">
                                         <rect key="frame" x="41.5" y="0.0" width="252" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="252" id="55D-Ej-imZ"/>
@@ -267,9 +267,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZNU-D7-6yp">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZNU-D7-6yp" customClass="RatingView" customModule="JRNL" customModuleProvider="target">
                                                     <rect key="frame" x="61.5" y="8" width="252" height="44"/>
-                                                    <color key="backgroundColor" systemColor="systemCyanColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="WcF-gq-nET"/>
                                                         <constraint firstAttribute="width" constant="252" id="Y9J-Qm-cQD"/>
@@ -354,7 +353,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="316"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A1W-Rw-cTq">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="map" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A1W-Rw-cTq">
                                                     <rect key="frame" x="37.5" y="8.5" width="300" height="298.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="0qa-30-7sT"/>
@@ -390,6 +389,7 @@
                         <outlet property="dateLabel" destination="lSQ-aL-EEz" id="ydg-2W-cQW"/>
                         <outlet property="mapImageView" destination="A1W-Rw-cTq" id="f0t-ea-91B"/>
                         <outlet property="photoImageView" destination="xGg-HL-BPt" id="oO0-1R-5Zp"/>
+                        <outlet property="ratingView" destination="ZNU-D7-6yp" id="Ypu-nU-RDQ"/>
                         <outlet property="titleLabel" destination="24j-JC-8o2" id="Llm-eX-hmM"/>
                     </connections>
                 </tableViewController>
@@ -485,9 +485,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
