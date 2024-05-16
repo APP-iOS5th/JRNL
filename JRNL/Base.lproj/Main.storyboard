@@ -108,9 +108,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="19o-9D-zq6">
                                 <rect key="frame" x="20" y="76" width="335" height="469"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-4e-gSH">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-4e-gSH" customClass="RatingView" customModule="JRNL" customModuleProvider="target">
                                         <rect key="frame" x="41.5" y="0.0" width="252" height="44"/>
-                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="252" id="55D-Ej-imZ"/>
                                             <constraint firstAttribute="height" constant="44" id="eOa-wn-lXM"/>
@@ -187,6 +186,7 @@
                         <outlet property="getLocationSwitch" destination="VfN-0g-PgM" id="Koq-X8-H2K"/>
                         <outlet property="getLocationSwitchLabel" destination="3jV-c7-3nO" id="9Ck-kS-2u1"/>
                         <outlet property="photoImageView" destination="ADd-JN-K3G" id="EvY-RO-0ZY"/>
+                        <outlet property="ratingView" destination="rU2-4e-gSH" id="Ldi-2w-6Uk"/>
                         <outlet property="saveButton" destination="Bic-hn-tmc" id="8Jr-mx-wbd"/>
                         <outlet property="titleTextField" destination="y5x-lU-8LG" id="vZx-L6-v6e"/>
                     </connections>
