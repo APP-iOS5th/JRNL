@@ -96,6 +96,20 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
         print("Failed to find user's location: \(error.localizedDescription)")
     }
     
+    // MARK: - UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was privided the following: \(info)")
+        }
+        let smallerImage = selectedImage.preparingThumbnail(of: CGSize(width: 300, height: 300))
+        photoImageView.image = smallerImage
+        dismiss(animated: true)
+    }
+    
     // MARK: - Methods
     private func updateSaveButtonState() {
         let textFieldText = titleTextField.text ?? ""
