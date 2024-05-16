@@ -147,12 +147,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-JN-K3G">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ADd-JN-K3G">
                                         <rect key="frame" x="67.5" y="269.5" width="200" height="199"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="ScN-28-7by"/>
                                             <constraint firstAttribute="width" constant="200" id="UWa-A0-Uzv"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="eyW-H8-R0q" appends="YES" id="wnw-3M-H6i"/>
+                                        </connections>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -193,6 +197,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LiV-YP-B5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="eww-Xj-D84" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="eyW-H8-R0q">
+                    <connections>
+                        <action selector="getPhoto:" destination="L6K-Dk-VRq" id="kgS-7m-JH2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3850" y="-247"/>
         </scene>
