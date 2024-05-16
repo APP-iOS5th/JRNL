@@ -14,10 +14,10 @@
             filePath = "JRNL/View/RatingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "rating"
-            landmarkType = "24">
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "setupButtons()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
