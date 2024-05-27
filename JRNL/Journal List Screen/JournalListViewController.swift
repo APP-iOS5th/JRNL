@@ -17,13 +17,28 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         super.viewDidLoad()
         SharedData.shared.loadJournalEntriesData()
         
+        setupCollectionView()
+        
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search titles"
         navigationItem.searchController = search
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    func setupCollectionView() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 10
+        collectionView.collectionViewLayout = flowLayout
+    }
 
-    // MARK: - UITableViewDataSource
+    // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if search.isActive {
             return self.filteredTableData.count
@@ -68,6 +83,22 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
             return UIMenu(title: "", image: nil, identifier: nil, options: [], children: [delete])
         }
         return config
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var columns: CGFloat
+        if (traitCollection.horizontalSizeClass == .compact) {
+            columns = 1
+        } else {
+            columns = 2
+        }
+        let viewWidth = collectionView.frame.width
+        let inset = 10.0
+        let contentWidth = viewWidth - inset * (columns + 1)
+        let cellWidth = contentWidth / columns
+        let cellHeight = 90.0
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     // MARK: - UISearchResultsUpdating
