@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sN8-FP-Gac">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="journalCell" id="sN8-FP-Gac" customClass="JournalListCollectionViewCell" customModule="JRNL" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="P8b-rT-KwF">
@@ -68,6 +68,9 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="375" height="90"/>
                                         <connections>
+                                            <outlet property="dateLabel" destination="vVH-aE-oJd" id="s0q-DK-QcW"/>
+                                            <outlet property="photoImageView" destination="SxG-ch-hI5" id="mA5-qd-WL7"/>
+                                            <outlet property="titleLabel" destination="lZd-Gk-y8t" id="yVk-Dz-c7e"/>
                                             <segue destination="xx1-0d-BGn" kind="show" identifier="entryDetail" id="22e-Mz-6VT"/>
                                         </connections>
                                     </collectionViewCell>

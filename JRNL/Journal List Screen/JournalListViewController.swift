@@ -34,7 +34,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListTableViewCell
+        let journalCell = tableView.dequeueReusableCell(withIdentifier: "journalCell", for: indexPath) as! JournalListCollectionViewCell
         
         let journalEntry: JournalEntry
         if self.search.isActive {
@@ -107,7 +107,7 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
             return
         }
         guard let journalEntryDetailViewController = segue.destination as? JournalEntryDetailViewController,
-              let selectedJournalEntryCell = sender as? JournalListTableViewCell,
+              let selectedJournalEntryCell = sender as? JournalListCollectionViewCell,
               let indexPath = tableView.indexPath(for: selectedJournalEntryCell) else {
             fatalError("Could not get indexPath")
         }
