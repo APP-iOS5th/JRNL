@@ -66,10 +66,13 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
             return
         }
         filteredTableData.removeAll()
-        for journalEntry in SharedData.shared.getAllJournalEntries() {
-            if journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased()) {
-                filteredTableData.append(journalEntry)
-            }
+//        for journalEntry in SharedData.shared.getAllJournalEntries() {
+//            if journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased()) {
+//                filteredTableData.append(journalEntry)
+//            }
+//        }
+        filteredTableData = SharedData.shared.getAllJournalEntries().filter { journalEntry in
+            journalEntry.entryTitle.lowercased().contains(searchBarText.lowercased())
         }
         self.tableView.reloadData()
     }
