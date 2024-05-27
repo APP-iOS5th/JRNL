@@ -105,7 +105,12 @@ class JournalListViewController: UIViewController, UITableViewDataSource, UITabl
               let indexPath = tableView.indexPath(for: selectedJournalEntryCell) else {
             fatalError("Could not get indexPath")
         }
-        let selectedJournalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
+        let selectedJournalEntry: JournalEntry
+        if self.search.isActive {
+            selectedJournalEntry = filteredTableData[indexPath.row]
+        } else {
+            selectedJournalEntry = SharedData.shared.getJournalEntry(index: indexPath.row)
+        }
         journalEntryDetailViewController.selectedJournalEntry = selectedJournalEntry
     }
 
