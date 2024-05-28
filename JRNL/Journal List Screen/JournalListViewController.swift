@@ -136,8 +136,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
     
     // MARK: - Methods
     func fetchJournalEntries() {
-        if let context = self.context,
-           let journalEntries = try? context.fetch(descrptor) {
+        if let journalEntries = try? context?.fetch(descrptor) {
             self.journalEntries = journalEntries
         }
     }
@@ -149,7 +148,7 @@ class JournalListViewController: UIViewController, UICollectionViewDataSource, U
         if let sourceViewController = segue.source as? AddJournalEntryViewController,
            let newJournalEntry = sourceViewController.newJournalEntry {
             self.context?.insert(newJournalEntry)
-            self.search.searchBar.isHidden = false
+            fetchJournalEntries()
             collectionView.reloadData()
         } else {
             print("No Entry or Controller")
