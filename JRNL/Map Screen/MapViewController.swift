@@ -36,7 +36,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let long = myLocation.coordinate.longitude
             self.navigationItem.title = "Map"
             mapView.region = setInitialRegion(lat: lat, long: long)
-            mapView.addAnnotations(SharedData.shared.getAllJournalEntries())
+//            mapView.addAnnotations(SharedData.shared.getAllJournalEntries())
         }
     }
     
