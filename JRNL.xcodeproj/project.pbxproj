@@ -19,6 +19,7 @@
 		376D26D32BEDDD3200B2E67B /* AddJournalEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D26D22BEDDD3200B2E67B /* AddJournalEntryViewController.swift */; };
 		376D26D62BEE01E100B2E67B /* JournalEntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D26D52BEE01E100B2E67B /* JournalEntryDetailViewController.swift */; };
 		3793B07D2BF3282C00C8C2BC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793B07C2BF3282C00C8C2BC /* MapViewController.swift */; };
+		37B1368F2C059364009D4E5A /* JournalMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1368E2C059364009D4E5A /* JournalMapAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		376D26D22BEDDD3200B2E67B /* AddJournalEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalEntryViewController.swift; sourceTree = "<group>"; };
 		376D26D52BEE01E100B2E67B /* JournalEntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryDetailViewController.swift; sourceTree = "<group>"; };
 		3793B07C2BF3282C00C8C2BC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		37B1368E2C059364009D4E5A /* JournalMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalMapAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				376D26CD2BEDB8CD00B2E67B /* JournalEntry.swift */,
+				37B1368E2C059364009D4E5A /* JournalMapAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				376626B42BF5BDB30076C4CE /* RatingView.swift in Sources */,
 				376D26CE2BEDB8CD00B2E67B /* JournalEntry.swift in Sources */,
 				376D26D02BEDC0D500B2E67B /* JournalListCollectionViewCell.swift in Sources */,
+				37B1368F2C059364009D4E5A /* JournalMapAnnotation.swift in Sources */,
 				3764AF7D2BE9F85F00A21A1B /* SceneDelegate.swift in Sources */,
 				376D26D62BEE01E100B2E67B /* JournalEntryDetailViewController.swift in Sources */,
 				376D26D32BEDDD3200B2E67B /* AddJournalEntryViewController.swift in Sources */,
