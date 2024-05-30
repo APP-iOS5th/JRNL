@@ -67,14 +67,15 @@ struct JRNLWidget: Widget {
                     .background()
             }
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("JRNLWidget")
+        .description("This widget displays journal entries.")
+        .supportedFamilies([.systemMedium, .accessoryRectangular])
     }
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemMedium) {
     JRNLWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "😀")
+    SimpleEntry(date: .now, emoji: "Today is a good day")
     SimpleEntry(date: .now, emoji: "🤩")
 }
