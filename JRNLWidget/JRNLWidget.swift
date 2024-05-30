@@ -7,28 +7,40 @@
 
 import WidgetKit
 import SwiftUI
+import SwiftData
 
 struct Provider: TimelineProvider {
+    let modelContext = ModelContext(try! ModelContainer(for: JournalEntry.self,
+                                                        configurations:ModelConfiguration(isStoredInMemoryOnly: false)))
+
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), emoji: "😀")
+        SimpleEntry(date: Date(),
+                    journalEntryDate: "JRNL",
+                    journalEntryTitle: "")
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), emoji: "😀")
+        let entry = SimpleEntry(date: Date(),
+                                journalEntryDate: "JRNL",
+                                journalEntryTitle: "")
         completion(entry)
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        let descriptor = FetchDescriptor<JournalEntry>()
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, emoji: "😀")
-            entries.append(entry)
-        }
 
+        if let journalEntries = try? modelContext.fetch(descriptor) {
+            for minuteOffset in 0 ..< journalEntries.count {
+                let entryDate = Calendar.current.date(byAdding: .minute, value: minuteOffset * 5, to: currentDate)!
+                let entry = SimpleEntry(date: entryDate,
+                                        journalEntryDate: journalEntries[minuteOffset].dateString,
+                                        journalEntryTitle: journalEntries[minuteOffset].entryTitle)
+                entries.append(entry)
+            }
+        }
+        
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
@@ -36,7 +48,9 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let emoji: String
+    var journalEntryDate: String
+    var journalEntryTitle: String
+    
 }
 
 struct JRNLWidgetEntryView : View {
@@ -44,11 +58,8 @@ struct JRNLWidgetEntryView : View {
 
     var body: some View {
         VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Emoji:")
-            Text(entry.emoji)
+            Text(entry.journalEntryDate)
+            Text(entry.journalEntryTitle)
         }
     }
 }
@@ -76,6 +87,10 @@ struct JRNLWidget: Widget {
 #Preview(as: .systemMedium) {
     JRNLWidget()
 } timeline: {
-    SimpleEntry(date: .now, emoji: "Today is a good day")
-    SimpleEntry(date: .now, emoji: "🤩")
+    SimpleEntry(date: Date(),
+                journalEntryDate: "JRNL",
+                journalEntryTitle: "")
+    SimpleEntry(date: Date(),
+                journalEntryDate: "JRNL",
+                journalEntryTitle: "")
 }
