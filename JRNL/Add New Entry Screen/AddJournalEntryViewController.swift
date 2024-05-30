@@ -34,7 +34,7 @@ class AddJournalEntryViewController: UIViewController, UITextFieldDelegate,
         updateSaveButtonState()
         
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
     }
     
     // MARK: - Navigation

@@ -9,12 +9,15 @@ import UIKit
 import CoreLocation
 import MapKit
 import SwiftData
+import SwiftUI
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet var mapView: MKMapView!
     let locationManager = CLLocationManager()
     var selectedJournalEntry: JournalEntry?
+    
+    let globeView = UIHostingController(rootView: GlobeView())
     
     var container: ModelContainer?
     var context: ModelContext?
@@ -40,6 +43,35 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         super.viewIsAppearing(animated)
         mapView.removeAnnotations(annotations)
         locationManager.requestLocation()
+        
+        #if os(xrOS)
+        addChild(globeView)
+        view.addSubview(globeView.view)
+        setupConstraints()
+        #endif
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+      super.viewDidDisappear(animated)
+      #if os(xrOS)
+      self.children.forEach {
+        $0.willMove(toParent: nil)
+        $0.view.removeFromSuperview()
+        $0.removeFromParent()
+      }
+      #endif
+    } 
+    
+    private func setupConstraints() {
+      globeView.view.translatesAutoresizingMaskIntoConstraints = false
+      globeView.view.centerXAnchor.constraint(equalTo:
+      view.centerXAnchor).isActive = true
+      globeView.view.centerYAnchor.constraint(equalTo:
+      view.centerYAnchor).isActive = true
+      globeView.view.heightAnchor.constraint(equalToConstant: 600.0).isActive =
+      true
+      globeView.view.widthAnchor.constraint(equalToConstant: 600.0).isActive =
+      true
     }
     
     // MARK: - CLLocationManagerDelegate
