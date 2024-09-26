@@ -12,13 +12,13 @@ import SwiftData
 @Model
 class JournalEntry {
     // MARK: - Properties
-    let dateString: String
-    let rating: Int
-    let entryTitle: String
-    let entryBody: String
-    @Attribute(.externalStorage) let photoData: Data?
-    let latitude: Double?
-    let longitude: Double?
+    var dateString: String
+    var rating: Int
+    var entryTitle: String
+    var entryBody: String
+    @Attribute(.externalStorage) var photoData: Data?
+    var latitude: Double?
+    var longitude: Double?
     
     // MARK: - Intialization
     init?(rating: Int, title: String, body: String,

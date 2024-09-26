@@ -10,7 +10,7 @@ import RealityKit
 
 struct GlobeView: View {
     var body: some View {
-        #if os(xrOS)
+        #if os(visionOS)
         VStack{
             Model3D(named: "globe") { model in model
                     .resizable()

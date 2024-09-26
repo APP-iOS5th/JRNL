@@ -44,7 +44,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         mapView.removeAnnotations(annotations)
         locationManager.requestLocation()
         
-        #if os(xrOS)
+        #if os(visionOS)
         addChild(globeView)
         view.addSubview(globeView.view)
         setupConstraints()
@@ -53,7 +53,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     override func viewDidDisappear(_ animated: Bool) {
       super.viewDidDisappear(animated)
-      #if os(xrOS)
+      #if os(visionOS)
       self.children.forEach {
         $0.willMove(toParent: nil)
         $0.view.removeFromSuperview()
